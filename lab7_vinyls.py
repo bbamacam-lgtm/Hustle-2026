@@ -16,6 +16,8 @@
 # DAY 1  -  BUILD YOUR ITEMS
 # ============================================================
 
+import random
+
 # TICKET 1: My item blueprint
 #   A class for your item. Every item has a name and a price.
 #   Write your class below.
@@ -70,12 +72,19 @@ print(item1.name)
 
 item2 = MP3("Bruno Mars - The Romantic", 30)
 
+item3 = Vinyl("Bad Bunny - DTMF", 30)
 
 # Ticket 3 test
 item1.set_price(-5)
 
+# TICKET 2 EXTENSION
+item1.set_price(15)
+print(item1.name + " is on sale for $" + str(item1.price)+ "!")
+
 item1.play()
 item2.play()
+item3.play()
+
 
 # ============================================================
 # DAY 2  -  BUILD YOUR STORE
@@ -109,16 +118,31 @@ class Cart:
 
 # TICKET 7: My menu and my cart
 #   A dictionary that gives each item a number, and one empty cart.
-store = {"1": item1, "2": item2}
+store = {"1": item1, "2": item2, "3": item3}
 
 cart = Cart()
+
+# TICKET 1 EXTENSION
+
+welcome_messages = [
+    "Welcome to the Vinyl store!",
+    "Find your music today!",
+    "Thank you for shopping with us!"
+]
+print(random.choice(welcome_messages))
+
+# TICKET 3 EXTENSION
+print("Here is what we have in store:")
+for number, item in store.items():
+    print (number + ":" + item.name + " - $" + str(item.price))
+
 
 # TICKET 8: Let customers shop
 #   Use input() and a loop to keep adding picks until "done".
 #   PREDICT what happens when you pick 1: SZA - Crtl added!
 
 while True:
-    choice = input("Pick 1, 2, or 'done':")
+    choice = input("Pick a number, or 'done':")
 
     if choice == "done":
         break
@@ -128,7 +152,16 @@ while True:
         print(store[choice].name + " added!")
 
     else:
-        print("Invalid choice. Try again")
+        print("Sorry, that's not on the menu!")
+
+#   TICKET 5 EXTENSION
+print("------- Your receipt -------")
+
+#   TICKET 6 EXTENSION
+print("You bought " + str(len(cart.items)) + " items.")
+
+for item in cart.items:
+    print(item.name + ". . . . $" + str(item.price))
 
 # Ticket 9
 cart.checkout()
