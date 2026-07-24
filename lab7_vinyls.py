@@ -68,22 +68,19 @@ class MP3(Vinyl):
 #   EXPLAIN : prints out only name SZA - Ctrl
 
 item1 = Vinyl("SZA - Ctrl", 20)
-print(item1.name)
+#   print(item1.name)
 
 item2 = MP3("Bruno Mars - The Romantic", 30)
 
 item3 = Vinyl("Bad Bunny - DTMF", 30)
 
 # Ticket 3 test
-item1.set_price(-5)
+#   item1.set_price(-5)
 
-# TICKET 2 EXTENSION
-item1.set_price(15)
-print(item1.name + " is on sale for $" + str(item1.price)+ "!")
 
-item1.play()
-item2.play()
-item3.play()
+#   item1.play()
+#   item2.play()
+#   item3.play() 
 
 
 # ============================================================
@@ -131,10 +128,16 @@ welcome_messages = [
 ]
 print(random.choice(welcome_messages))
 
+
+# TICKET 2 EXTENSION
+item1.set_price(15)
+print(item1.name + " is on sale for $" + str(item1.price)+ "!")
+
+
 # TICKET 3 EXTENSION
-print("Here is what we have in store:")
+print("\nHere is what we have in store:")
 for number, item in store.items():
-    print (number + ":" + item.name + " - $" + str(item.price))
+    print(number + ": " + item.name + " - $" + str(item.price))
 
 
 # TICKET 8: Let customers shop
@@ -142,7 +145,7 @@ for number, item in store.items():
 #   PREDICT what happens when you pick 1: SZA - Crtl added!
 
 while True:
-    choice = input("Pick a number, or 'done':")
+    choice = input("Pick a number, or 'done': ")
 
     if choice == "done":
         break
@@ -155,13 +158,14 @@ while True:
         print("Sorry, that's not on the menu!")
 
 #   TICKET 5 EXTENSION
-print("------- Your receipt -------")
+print("\n------- Your receipt -------")
 
-#   TICKET 6 EXTENSION
-print("You bought " + str(len(cart.items)) + " items.")
 
 for item in cart.items:
     print(item.name + ". . . . $" + str(item.price))
+
+#   TICKET 6 EXTENSION
+print("You bought " + str(len(cart.items)) + " items.")
 
 # Ticket 9
 cart.checkout()
